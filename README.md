@@ -2,15 +2,28 @@
 
 A collection of Google Apps Scripts for automating workflows with Google Sheets and Google Calendar.
 
+<p><strong><span style="color: red;">Warning: These scripts are mostly vibe-coded for personal use and are not tested to be easily transferable. They were built to save me several hours of work, but feel free to use and modify them as you like.</span></strong></p>
+
 ## 🚀 Projects
 
 ### 📅 [Marathon Training Tracker](maraton-training-tracker/)
-Sync your training plan from Google Sheets directly to Google Calendar.
+Two-way sync between a Google Sheets marathon plan and Google Calendar events.
+
+recommended usage: Ask ChatGPT to re-write the plan part according to your needs and fitness level, then use the script to keep your calendar and sheet in sync, and to track your feedback on each workout.
 
 **Features:**
-- Auto-sync training schedule to calendar events
-- Test calendar access
-- Maintain sync logs
+- Plan -> Calendar sync (creates/updates all-day or timed training events)
+- Calendar -> Sheet feedback import via editable `[FEEDBACK]` block
+- Status-aware event titles (`planned`, `done`, `skipped`, `modified`)
+- Per-row event overrides (mode, start/end time)
+- Sync metadata and logging (`event ID`, sync timestamp, title snapshot, logs)
+- Utility actions (calendar access test, reset sync state, bulk delete by prefix)
+
+**Requires these sheets:**
+- `Plan`
+- `Schedule`
+- `Settings`
+- `Logs`
 
 [→ Setup Guide](maraton-training-tracker/README.md)
 
