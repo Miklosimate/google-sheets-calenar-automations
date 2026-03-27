@@ -427,7 +427,11 @@ function setRowValuesFromActuals_(sheet, rowNumber, headers, actualMap) {
   setIfPresent('actual_duration_min', actualMap.actual_duration_min || '');
   setIfPresent('actual_avg_hr', actualMap.actual_avg_hr || '');
   setIfPresent('actual_max_hr', actualMap.actual_max_hr || '');
-  setIfPresent('actual_avg_pace', actualMap.actual_avg_pace || '');
+  if (typeof headers.actual_avg_pace !== 'undefined') {
+  var paceCell = sheet.getRange(rowNumber, headers.actual_avg_pace + 1);
+  paceCell.setNumberFormat('@STRING@');
+  paceCell.setValue(String(actualMap.actual_avg_pace || ''));
+}
   setIfPresent('actual_rpe', actualMap.actual_rpe || '');
   setIfPresent('actual_notes', actualMap.actual_notes || '');
 }
