@@ -2,7 +2,7 @@
 
 Google Apps Script for syncing a marathon training plan between Google Sheets and Google Calendar.
 
-The script file is: `marathon_calendar_feedback_rethink.gs`
+The script file is: `marathon_calendar_feedback_fueling.gs`
 
 ## What It Does
 
@@ -81,6 +81,7 @@ Minimum practical columns (exact header names):
 - `actual_avg_pace`
 - `actual_rpe`
 - `actual_notes`
+- `actual_fuel_notes`
 - `calendar_event_id`
 - `event_last_synced_at`
 - `calendar_title_snapshot`
@@ -138,6 +139,7 @@ Supported feedback keys (case/spacing tolerant):
 - `avg_hr`
 - `max_hr`
 - `avg_pace`
+- `fuel` (or `fueling`)
 - `rpe`
 - `notes`
 
@@ -153,6 +155,7 @@ duration_min=75
 avg_hr=138
 max_hr=152
 avg_pace=5:42
+fuel=banana + dates
 rpe=6
 notes=felt smooth
 [/FEEDBACK]
@@ -203,7 +206,7 @@ status=skipped
 1. Create/open a Google Sheet and add tabs: `Plan`, `Schedule`, `Settings`, `Logs`.
 2. Add header row for `Plan` and `Schedule` with the column names above.
 3. Fill `Settings` keys and values.
-4. Open Extensions -> Apps Script and paste `marathon_calendar_feedback_rethink.gs`.
+4. Open Extensions -> Apps Script and paste `marathon_calendar_feedback_fueling.gs`.
 5. Save, reload the sheet, then use the `Training Feedback Sync` menu.
 6. Run `Test Calendar Access` first.
 7. Run `Sync Plan -> Calendar` to generate events.
